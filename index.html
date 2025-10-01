@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Software Solutions Services - Hardware &amp; Software Experts</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="robots" content="index,follow"/>
+  <meta name="generator" content="GrapesJS Studio"/>
+  <meta name="description" content="S³ — Software Solutions Services. Reliable hardware/software repair and full-spectrum website services with smooth, professional animations."/>
+  <meta property="og:title" content="Software Solutions Services"/>
+  <meta property="og:description" content="Smart, reliable, and affordable static web design + software solutions."/>
+  <meta property="og:image" content="https://s3-works.github.io/s3-works/SSS.jpg"/>
+  <link rel="shortcut icon" href="https://s3-works.github.io/beta/SSS.ico"/>
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://s3-works.github.io/s3-works/"/>
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:url" content="https://s3-works.github.io/s3-works/"/>
+<meta name="twitter:title" content="Software Solutions Services"/>
+<meta name="twitter:description" content="Smart, reliable, and affordable static web design + software solutions."/>
+<meta name="twitter:image" content="https://s3-works.github.io/s3-works/SSS.jpg"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <link rel="stylesheet" href="./style.css">
+  </head>
+  <body class="gjs-t-body cls-01p8j6"><header id="i5awz" class="header-navigation"><div id="i1fi5" class="header-container"><a href="#hero" id="ilv3t" class="gjs-t-link header-brand-link"><div id="imma6" class="brand-mark"><span id="i5zhv" class="brand-mark-text">S³</span></div><span id="ip3pk" class="brand-name">Software Solutions Services</span></a><nav id="ir7dm" aria-label="Primary" class="header-nav"><a href="#services" id="itlsi" class="gjs-t-link nav-link-services">Services</a><a href="#pricing" id="igh8y" class="gjs-t-link nav-link-pricing">Pricing</a><a href="#promotions" id="its0i" class="gjs-t-link nav-link-promotions">Promotions</a><a href="#mission" id="ipbzr" class="gjs-t-link nav-link-mission">Mission</a><a href="#contact" id="i8tf1" class="gjs-t-link nav-link-contact">Contact</a></nav><div id="ilaqi" class="header-cta-wrapper"><a href="#contact" id="ix2bt" class="gjs-t-button header-cta-button">Get Started</a></div><button type="button" id="i2vdy" aria-label="Open menu" aria-expanded="false" aria-controls="ir7dm" class="mobile-menu-button"><img alt="Open menu" decoding="async" src="https://api.iconify.design/lucide-menu.svg?color=currentColor&amp;width=24&amp;height=24" width="24" height="24" id="ia0rz" class="mobile-menu-icon"/></button></div><script id="ig119d">
+  (function () {
+    const header = document.getElementById('i5awz');
+    if (!header) return;
+
+    const btn = header.querySelector('#i2vdy');
+    const nav = header.querySelector('#ir7dm');
+
+    const mq = window.matchMedia('(max-width: 992px)');
+
+    function closeMenu() {
+      nav.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open menu');
+      const icon = btn.querySelector('img');
+      if (icon) {
+        icon.src = 'https://api.iconify.design/lucide-menu.svg?color=currentColor&width=24&height=24';
+        icon.alt = 'Open menu';
+      }
+    }
+
+    function openMenu() {
+      nav.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.setAttribute('aria-label', 'Close menu');
+      const icon = btn.querySelector('img');
+      if (icon) {
+        icon.src = 'https://api.iconify.design/lucide-x.svg?color=currentColor&width=24&height=24';
+        icon.alt = 'Close menu';
+      }
+    }
+
+    function toggleMenu() {
+      if (nav.classList.contains('is-open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+
+    btn.addEventListener('click', toggleMenu);
+
+    // Close when clicking a link (for better UX)
+    nav.addEventListener('click', (e) => {
+      const target = e.target;
+      if (target && target.matches('a')) {
+        closeMenu();
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // Reset state on viewport changes
+    function handleViewportChange() {
+      if (!mq.matches) {
+        // Desktop
+        nav.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        // Mobile - keep closed by default
+        closeMenu();
+      }
+    }
+
+    mq.addEventListener ? mq.addEventListener('change', handleViewportChange) : mq.addListener(handleViewportChange);
+    handleViewportChange();
+
+    // Disable animations in the Promotions "Limited-time: Free Website Design" banner
+    function disablePromoAnimations() {
+      const banner = document.querySelector('#promotions .promo-banner');
+      if (!banner) return;
+
+      banner.removeAttribute('data-tilt');
+      banner.removeAttribute('data-animate');
+
+      const animatedEls = banner.querySelectorAll('[data-animate], [data-tilt]');
+      animatedEls.forEach((el) => {
+        el.removeAttribute('data-animate');
+        el.removeAttribute('data-tilt');
+        el.style.transform = '';
+        el.style.transition = '';
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', disablePromoAnimations);
+    } else {
+      disablePromoAnimations();
+    }
+  })();
+</script></header><main class="main-content"><section id="hero" class="hero-section"><div class="hero-background-wrapper"><div class="hero-gradient-blob-left"></div><div class="hero-gradient-blob-right"></div><div class="hero-grid-overlay"></div></div><div class="hero-container"><div class="hero-content"><h1 data-animate="fade-up" class="gjs-t-h1 hero-title">
+            S³ — Software Solutions Services
+          </h1><p data-animate="fade-up" class="hero-subtitle">
+            Repairs, websites, and ongoing support — fast, reliable, and secure. Smooth, modern experiences powered by professional-grade animations.
+          </p><div data-animate="fade-up" class="hero-actions"><a href="#contact" class="gjs-t-button hero-primary-cta">Get a Quote</a><a href="#services" class="gjs-t-link hero-secondary-cta">Explore Services</a></div></div></div></section><section id="services" class="services-section"><div class="services-container"><div class="services-header"><h2 data-animate="fade-up" class="gjs-t-h2 services-title">Core Offerings</h2><p data-animate="fade-up" class="services-subtitle">
+            Two focused categories to cover your needs end‑to‑end. Each service is performed with care, clarity, and measurable results.
+          </p></div><div class="services-grid"><article data-animate="fade-right" data-tilt="" class="group service-card-hardware"><div class="service-card-header"><div class="service-icon-wrapper"><img alt="Hardware Repair" decoding="async" src="https://api.iconify.design/lucide-cpu.svg" width="24" height="24" class="service-icon-hardware"/></div><h3 class="service-card-title">Hardware &amp; Software Repair</h3></div><p class="service-card-description">
+              Diagnostics and repairs to keep your devices healthy and high‑performing.
+            </p><ul class="service-feature-list"><li class="service-feature-item"><img alt="Diagnostics" decoding="async" src="https://api.iconify.design/lucide-stethoscope.svg" width="20" height="20" class="service-feature-icon"/><span>Diagnostics</span></li><li class="service-feature-item"><img alt="Component upgrades" decoding="async" src="https://api.iconify.design/lucide-hard-drive.svg" width="20" height="20" class="service-feature-icon"/><span>Component upgrades</span></li><li class="service-feature-item"><img alt="Screen replacements" decoding="async" src="https://api.iconify.design/lucide-monitor.svg" width="20" height="20" class="service-feature-icon"/><span>Screen replacements</span></li><li class="service-feature-item"><img alt="Operating system installs" decoding="async" src="https://api.iconify.design/lucide-apple.svg" width="20" height="20" class="service-feature-icon"/><span>Operating system installs</span></li><li class="service-feature-item"><img alt="Virus removal" decoding="async" src="https://api.iconify.design/lucide-shield-check.svg" width="20" height="20" class="service-feature-icon"/><span>Virus removal</span></li><li class="service-feature-item"><img alt="Performance tuning" decoding="async" src="https://api.iconify.design/lucide-gauge.svg" width="20" height="20" class="service-feature-icon"/><span>Performance tuning</span></li></ul></article><article data-animate="fade-left" data-tilt="" class="group service-card-web"><div class="service-card-header"><div class="service-icon-wrapper"><img alt="Website Services" decoding="async" src="https://api.iconify.design/lucide-globe.svg" width="24" height="24" class="service-icon-web"/></div><h3 class="service-card-title">Website Services</h3></div><p class="service-card-description">
+              Complete, web‑focused solutions to grow your presence and performance online.
+            </p><ul class="service-feature-list"><li class="service-feature-item"><img alt="Responsive design" decoding="async" src="https://api.iconify.design/lucide-layout.svg" width="20" height="20" class="service-feature-icon"/><span>Responsive design</span></li><li class="service-feature-item"><img alt="SEO optimization" decoding="async" src="https://api.iconify.design/lucide-search-check.svg" width="20" height="20" class="service-feature-icon"/><span>SEO optimization</span></li><li class="service-feature-item"><img alt="Domain setup" decoding="async" src="https://api.iconify.design/lucide-link.svg" width="20" height="20" class="service-feature-icon"/><span>Domain setup</span></li><li class="service-feature-item"><img alt="SSL security" decoding="async" src="https://api.iconify.design/lucide-lock.svg" width="20" height="20" class="service-feature-icon"/><span>SSL security</span></li><li class="service-feature-item"><img alt="Ongoing maintenance" decoding="async" src="https://api.iconify.design/lucide-refresh-ccw.svg" width="20" height="20" class="service-feature-icon"/><span>Ongoing maintenance</span></li></ul></article></div></div></section><section id="pricing" class="pricing-section"><div class="pricing-container"><div class="pricing-header"><h2 data-animate="fade-up" class="gjs-t-h2 pricing-title">Flexible Monthly Website Management Plans</h2><p data-animate="fade-up" class="pricing-subtitle">
+            Choose a plan that fits your pace. Overages billed at R200/hour.
+          </p></div><div class="pricing-grid"><article data-animate="zoom-in" data-tilt="" class="group pricing-card-bronze"><div class="pricing-card-header"><h3 class="pricing-plan-name">Bronze</h3><span class="pricing-badge">Starter</span></div><p class="pricing-value">R499.99<span class="pricing-per">/month</span></p><ul class="pricing-feature-list"><li class="pricing-feature-item"><img alt="Updates" decoding="async" src="https://api.iconify.design/lucide-check-circle-2.svg" width="20" height="20" class="pricing-feature-icon"/><span>5 FREE updates</span></li><li class="pricing-feature-item"><img alt="Support" decoding="async" src="https://api.iconify.design/lucide-headset.svg" width="20" height="20" class="pricing-feature-icon"/><span>Reports via email</span></li><li class="pricing-feature-item"><img alt="Domain" decoding="async" src="https://api.iconify.design/lucide-globe.svg" width="20" height="20" class="pricing-feature-icon"/><span>+ 1 FREE custom domain</span></li></ul><a href="#contact" class="gjs-t-button pricing-cta">Choose Bronze</a></article><article data-animate="zoom-in" data-tilt="" class="group pricing-card-silver"><div class="pricing-card-header"><h3 class="pricing-plan-name">Silver</h3><span class="pricing-badge">Popular</span></div><p class="pricing-value">R799.99<span class="pricing-per">/month</span></p><ul class="pricing-feature-list"><li class="pricing-feature-item"><img alt="Updates" decoding="async" src="https://api.iconify.design/lucide-check-circle-2.svg" width="20" height="20" class="pricing-feature-icon"/><span>10 FREE updates</span></li><li class="pricing-feature-item"><img alt="Support" decoding="async" src="https://api.iconify.design/lucide-headset.svg" width="20" height="20" class="pricing-feature-icon"/><span>Reports via email</span></li><li class="pricing-feature-item"><img alt="Domain" decoding="async" src="https://api.iconify.design/lucide-globe.svg" width="20" height="20" class="pricing-feature-icon"/><span>+ 1 FREE custom domain</span></li></ul><a href="#contact" class="gjs-t-button pricing-cta">Choose Silver</a></article><article data-animate="zoom-in" data-tilt="" class="group pricing-card-gold"><div class="pricing-card-header"><h3 class="pricing-plan-name">Gold</h3><span class="pricing-badge">Growing</span></div><p class="pricing-value">R1199.99<span class="pricing-per">/month</span></p><ul class="pricing-feature-list"><li class="pricing-feature-item"><img alt="Updates" decoding="async" src="https://api.iconify.design/lucide-check-circle-2.svg" width="20" height="20" class="pricing-feature-icon"/><span>20 FREE updates</span></li><li class="pricing-feature-item"><img alt="Support" decoding="async" src="https://api.iconify.design/lucide-headset.svg" width="20" height="20" class="pricing-feature-icon"/><span>Reports via email/WhatsApp</span></li><li class="pricing-feature-item"><img alt="Domain" decoding="async" src="https://api.iconify.design/lucide-globe.svg" width="20" height="20" class="pricing-feature-icon"/><span>+ 1 FREE custom domain</span></li></ul><a href="#contact" class="gjs-t-button pricing-cta">Choose Gold</a></article><article data-animate="zoom-in" data-tilt="" class="group pricing-card-platinum"><div class="pricing-card-header"><h3 class="pricing-plan-name">Platinum</h3><span class="pricing-badge">Full Scale</span></div><p class="pricing-value">R1999.99<span class="pricing-per">/month</span></p><ul class="pricing-feature-list"><li class="pricing-feature-item"><img alt="Updates" decoding="async" src="https://api.iconify.design/lucide-check-circle-2.svg" width="20" height="20" class="pricing-feature-icon"/><span>35 FREE updates</span></li><li class="pricing-feature-item"><img alt="Support" decoding="async" src="https://api.iconify.design/lucide-headset.svg" width="20" height="20" class="pricing-feature-icon"/><span>Reports via email/WhatsApp</span></li><li class="pricing-feature-item"><img alt="Domain" decoding="async" src="https://api.iconify.design/lucide-globe.svg" width="20" height="20" class="pricing-feature-icon"/><span>+ 1 FREE custom domain</span></li></ul><a href="#contact" class="gjs-t-button pricing-cta">Choose Platinum</a></article></div></div></section><section id="promotions" class="promotions-section"><div class="promotions-container"><div data-animate="fade-up" data-tilt="" class="promo-banner"><div class="promo-glow-layer"></div><div class="promo-header"><img alt="Limited Offer" decoding="async" src="https://api.iconify.design/lucide-gift.svg" width="28" height="28" class="promo-icon"/><h3 class="promo-title">Limited-time: Free Website Design</h3></div><p class="promo-lead">
+            Get a professionally designed website layout at no cost — includes a live demo hosted on GitHub for one month.
+          </p><div class="promo-features-grid"><div data-animate="fade-right" class="promo-feature-card"><img alt="Mobile responsive" decoding="async" src="https://api.iconify.design/lucide-smartphone.svg" width="24" height="24" class="promo-feature-icon"/><span>Mobile responsive layouts</span></div><div data-animate="fade-right" class="promo-feature-card"><img alt="SEO optimization" decoding="async" src="https://api.iconify.design/lucide-bar-chart-4.svg" width="24" height="24" class="promo-feature-icon"/><span>SEO optimization</span></div><div data-animate="fade-left" class="promo-feature-card"><img alt="SSL security" decoding="async" src="https://api.iconify.design/lucide-shield.svg" width="24" height="24" class="promo-feature-icon"/><span>SSL security</span></div><div data-animate="fade-left" class="promo-feature-card"><img alt="GitHub demo" decoding="async" src="https://api.iconify.design/lucide-github.svg" width="24" height="24" class="promo-feature-icon"/><span>GitHub-hosted demo<br/>(1 month)</span></div></div><div class="promo-action-row"><a href="#contact" class="gjs-t-button promo-cta">Claim Offer</a><span class="promo-fine-print">Limited availability — terms apply.</span></div></div></div></section><section id="mission" class="mission-section"><div class="mission-container"><div class="mission-header"><h2 data-animate="fade-up" class="gjs-t-h2 mission-title">Our Mission</h2><p data-animate="fade-up" class="mission-subtitle">
+            Empower businesses and individuals through reliable, comprehensive tech services that are accessible, transparent, and effective.
+          </p></div><div class="mission-grid"><div data-animate="fade-right" class="mission-item"><img alt="Reliability" decoding="async" src="https://api.iconify.design/lucide-shield-check.svg" width="28" height="28" class="mission-icon"/><div><h4 class="mission-item-title">Reliability first</h4><p class="mission-item-text">Consistent results with a focus on uptime, security, and performance.</p></div></div><div data-animate="fade-up" class="mission-item"><img alt="Clarity" decoding="async" src="https://api.iconify.design/lucide-compass.svg" width="28" height="28" class="mission-icon"/><div><h4 class="mission-item-title">Clarity &amp; transparency</h4><p class="mission-item-text">Clear communication, straightforward pricing, and documented work.</p></div></div><div data-animate="fade-left" class="mission-item"><img alt="Support" decoding="async" src="https://api.iconify.design/lucide-life-buoy.svg" width="28" height="28" class="mission-icon"/><div><h4 class="mission-item-title">Support that scales</h4><p class="mission-item-text">From a single laptop to a growing site — we’re with you at every step.</p></div></div></div></div></section><section id="contact" class="contact-section"><div class="contact-container"><div class="contact-header"><h2 data-animate="fade-up" class="gjs-t-h2 contact-title">Get in Touch</h2><p data-animate="fade-up" class="contact-subtitle">
+            Reach out for quotes, questions, or consultations. We respond promptly within business hours.
+          </p></div><div class="contact-grid"><div data-animate="fade-right" data-tilt="" class="contact-card-email"><div class="contact-icon-wrapper"><img alt="Email" decoding="async" src="https://api.iconify.design/lucide-mail.svg" width="24" height="24" class="contact-icon-email"/></div><div><div class="contact-label">Email</div><a href="mailto:martinoslit332@gmail.com" class="gjs-t-link contact-link-email">martinoslit332@gmail.com</a></div></div><div data-animate="fade-up" data-tilt="" class="contact-card-whatsapp"><div class="contact-icon-wrapper"><img alt="WhatsApp" decoding="async" src="https://api.iconify.design/lucide-message-circle.svg" width="24" height="24" class="contact-icon-whatsapp"/></div><div><div class="contact-label">WhatsApp</div><a href="https://wa.me/27686592320" class="gjs-t-link contact-link-whatsapp">+27 68 659 2320</a></div></div><div data-animate="fade-left" data-tilt="" class="contact-card-hours"><div class="contact-icon-wrapper"><img alt="Hours" decoding="async" src="https://api.iconify.design/lucide-clock-8.svg" width="24" height="24" class="contact-icon-hours"/></div><div><div class="contact-label">Business Hours</div><p class="contact-hours-text">Mon–Fri 10 AM–5 PM<br/>Sat–Sun 11 AM–5 PM</p></div></div></div></div></section></main><footer class="footer"><div class="footer-container"><p class="footer-copyright">
+        © <span>2023</span> S³ — Software Solutions Services. All rights reserved.
+      </p><div class="footer-links"><a href="#services" class="gjs-t-link footer-link-services">Services</a><a href="#pricing" class="gjs-t-link footer-link-pricing">Pricing</a><a href="#contact" class="gjs-t-link footer-link-contact">Contact</a></div></div></footer><script>
+    window.addEventListener('load', () => {
+      // GSAP setup
+      const gs = window.gsap;
+      const ST = window.ScrollTrigger;
+      if (gs && ST) {
+        gs.registerPlugin(ST);
+
+        // Hero intro timeline
+        gs.timeline()
+          .from('[data-gjs-name="Hero Title"]', { y: 30, opacity: 0, duration: 0.7, ease: 'power3.out' }, 0)
+          .from('[data-gjs-name="Hero Subtitle"]', { y: 24, opacity: 0, duration: 0.6, ease: 'power3.out' }, 0.1)
+          .from('[data-gjs-name="Hero Actions"]', { y: 18, opacity: 0, duration: 0.6, ease: 'power3.out' }, 0.2);
+
+        // Floating blobs animation (hero background)
+        gs.to('[data-gjs-name="Hero Gradient Blob Left"]', {
+          x: 60,
+          y: -30,
+          duration: 10,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut'
+        });
+        gs.to('[data-gjs-name="Hero Gradient Blob Right"]', {
+          x: -70,
+          y: 40,
+          duration: 12,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut'
+        });
+
+        // Reveal on scroll with entry and exit animations
+        const setupReveal = (el) => {
+          const type = el.getAttribute('data-animate') || 'fade-up';
+          let from = { opacity: 0 };
+          if (type === 'fade-up') from = { y: 40, opacity: 0 };
+          if (type === 'fade-right') from = { x: -40, opacity: 0 };
+          if (type === 'fade-left') from = { x: 40, opacity: 0 };
+          if (type === 'zoom-in') from = { scale: 0.92, opacity: 0 };
+
+          gs.set(el, from);
+          const to = { x: 0, y: 0, scale: 1, opacity: 1, duration: 0.7, ease: 'power3.out' };
+
+          ST.create({
+            trigger: el,
+            start: 'top 85%',
+            end: 'bottom 15%',
+            onEnter: () => gs.to(el, to),
+            onEnterBack: () => gs.to(el, to),
+            onLeave: () => gs.to(el, { ...from, duration: 0.5, ease: 'power3.inOut' }),
+            onLeaveBack: () => gs.to(el, { ...from, duration: 0.5, ease: 'power3.inOut' })
+          });
+        };
+
+        document.querySelectorAll('.reveal').forEach(setupReveal);
+      }
+
+      // Subtle interactive tilt for cards (disabled on touch)
+      const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      if (!isTouch) {
+        const tiltables = document.querySelectorAll('[data-tilt]');
+        tiltables.forEach(card => {
+          const damp = 18; // lower is more tilt
+          const reset = () => {
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+          };
+          card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const dx = (e.clientX - cx) / (rect.width / 2);
+            const dy = (e.clientY - cy) / (rect.height / 2);
+            const rx = (-dy * damp).toFixed(2);
+            const ry = (dx * damp).toFixed(2);
+            card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-2px)`;
+          });
+          card.addEventListener('mouseleave', reset);
+          card.addEventListener('mouseenter', () => {
+            card.style.transition = 'transform 200ms ease';
+            setTimeout(() => card.style.transition = '', 220);
+          });
+        });
+      }
+    });
+  </script></body>
+</html>
